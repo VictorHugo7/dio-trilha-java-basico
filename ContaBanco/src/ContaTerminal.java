@@ -33,6 +33,25 @@ public class ContaTerminal {
         System.out.println("Conta: " + conta);
         System.out.printf("Saldo: R$ %.2f\n", saldo);
 
+        System.out.println("Gostaria de realizar um saque? Digite 1 se SIM ou 2 para NÃO: ");
+        Integer opcaoSaque = scanner.nextInt();
+        
+        if(opcaoSaque == 1) {
+            System.out.println("Por favor, insira o valor que gostaria de sacar: \n R$ ");
+            Double valorSaque = scanner.nextDouble();
+            
+            if(valorSaque > saldo) {
+                System.out.printf("Saldo insuficiente. \n Por favor, Solicite um valor menor ou igual que " + saldo + "\n"); 
+                valorSaque = scanner.nextDouble();
+                
+                Double novoSaldo = saldo - valorSaque;
+            	System.out.printf("Saque realizado com sucesso! Seu saldo atual é de " + novoSaldo);
+            }else {
+            	Double novoSaldo = saldo - valorSaque;
+            	System.out.printf("Saque realizado com sucesso! Seu saldo atual é de " + novoSaldo);
+            }
+        	
+        }
         scanner.close();
     }
 }
